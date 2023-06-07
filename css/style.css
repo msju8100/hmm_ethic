@@ -1,0 +1,1887 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Sans:wght@500&display=swap");
+
+/* color guide */
+:root {
+  --color-main-text: #2e2e2e;
+  --color-sub-text: #636363;
+  --color-main-color: #20265b;
+  --color-sub-color: #ee312f;
+  --color-bg-color: #f3f3f3;
+}
+
+.skip {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+}
+
+/* base */
+body,
+section,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+ol,
+p,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+em,
+address {
+  font-style: normal;
+}
+button {
+  padding: 0;
+  border: none;
+  background: inherit;
+  cursor: pointer;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  color: var(--color-main-text);
+}
+
+/* 스킵 네비 */
+#skipNavi a:hover,
+#skipNavi a:active,
+#skipNavi a:focus {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  margin: 0;
+  clip: auto;
+  text-align: center;
+  text-decoration: underline;
+  background-color: lightblue;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-sub-text);
+}
+.bg_grey {
+  background-color: var(--color-bg-color);
+}
+.button.md {
+  font-size: 16px;
+  padding: 8px 27px;
+  color: #0c205c;
+  font-weight: 700;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+  display: inline-block;
+}
+.en {
+  font-family: "Noto Sans", sans-serif;
+}
+.mo_only {
+  display: block;
+}
+.pc_only {
+  display: none;
+}
+
+.wrap {
+  padding: 0 16px;
+}
+/* header */
+header {
+  height: 56px;
+  background-color: #fff;
+  box-shadow: 0px 1px 1px #00000029;
+}
+header .wrap {
+  display: flex;
+  justify-content: space-between;
+}
+header.fixed {
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+}
+header h1 {
+  width: 50px;
+  height: 22px;
+  display: inline-block;
+  background: url(../images/logo/logo_pc.png) no-repeat 50% 50% / contain;
+  margin: 18px 0 0 8px;
+}
+header h1 a {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+header .open_menu {
+  width: 26px;
+  height: 21px;
+  margin: 17px 8px 0 0;
+}
+header .open_menu a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background: url(../images/ico/ico_open_menu.png) no-repeat 50% 50% / contain;
+}
+/* 메인메뉴 */
+header .menu_wrap_mo {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 0 16px 0 16px;
+  z-index: 2;
+}
+header .menu_wrap_mo.on {
+  display: block;
+}
+header .menu_wrap_mo .util {
+  display: flex;
+  justify-content: flex-end;
+  padding: 24px 0;
+}
+header .menu_wrap_mo .util li {
+  padding: 0 12px;
+}
+header .menu_wrap_mo .util .mypage {
+  width: 21px;
+  height: 21px;
+  display: block;
+  background: url(../images/ico/ico_user_mo.png) no-repeat 50% 50% / contain;
+}
+header .menu_wrap_mo .util .menu_close {
+  width: 21px;
+  height: 21px;
+  display: block;
+  background: url(../images/ico/ico_close_menu.png) no-repeat 50% 50% / contain;
+}
+header nav > .main_menu > li {
+  border-top: 1px solid var(--color-main-text);
+}
+header nav > .main_menu > li:last-child {
+  border-bottom: 1px solid var(--color-main-text);
+}
+header nav > .main_menu > li > a {
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-main-text);
+  display: inline-block;
+  padding: 17px 11px;
+  position: relative;
+}
+header nav > .main_menu > li > a.on,
+header nav .sub_menu > li > a:hover {
+  color: #4e4e88;
+  font-weight: 700;
+}
+header nav > .main_menu > li > a.on {
+  font-weight: 700;
+}
+header nav .sub_menu > li > a:hover {
+  font-weight: 500;
+}
+header nav > .main_menu > li > a::after {
+  content: "";
+  width: 15px;
+  height: 10px;
+  background: url(../images/ico/ico_sub_open.png) 50% 50% / 100% no-repeat;
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -4px;
+}
+header nav > .main_menu > li > a.on::after {
+  transform: rotateX(180deg);
+}
+header nav > .main_menu > .sub_open {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+header nav .sub_menu {
+  display: none;
+  border-top: 1px solid var(--color-main-text);
+  padding: 10px 0;
+}
+header nav .sub_menu li {
+  padding: 6px 11px;
+}
+header nav .sub_menu > li > a {
+  font-size: 16px;
+  color: var(--color-sub-text);
+}
+header .util_etc {
+  display: flex;
+  margin: 18px 0 0 14px;
+}
+header .util_etc > li > a {
+  font-family: "Noto Sans", sans-serif;
+  color: var(--color-main-text);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0 14px;
+}
+header .util_etc > li > .lang_default {
+  position: relative;
+  padding-right: 20px;
+  font-size: 16px;
+}
+header .util_etc > li > .lang_default::after {
+  content: "";
+  width: 10px;
+  height: 6px;
+  background: url(../images/ico/ico_util_arrow_mo.png) 50% 50% / 100% no-repeat;
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+header .util_etc > .lang {
+  position: relative;
+}
+header .util_etc > .lang.active .lang_default::after {
+  transform: rotateX(180deg);
+}
+header .util_etc > .lang.active .lang_dropdown {
+  display: block;
+}
+header .util_etc > .lang .lang_dropdown {
+  display: none;
+  width: 56px;
+  border: 1px solid #707070;
+  border-radius: 5px;
+  background-color: #fff;
+  position: absolute;
+  left: -3px;
+  top: 35px;
+}
+header .util_etc > .lang .lang_dropdown li {
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .util_etc > .lang .lang_dropdown a {
+  font-size: 14px;
+  color: var(--color-sub-text);
+}
+/* main visual */
+.main_visual .slider_wrap {
+  position: relative;
+}
+.main_visual .text_wrap h3 .sm_txt {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-main-text);
+  padding: 59px 0 8px 0;
+  display: block;
+}
+.main_visual .text_wrap h3 .lg_txt {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--color-main-text);
+  padding-bottom: 53px;
+  display: block;
+}
+
+.main_visual .slick-list {
+  border-radius: 5px;
+}
+.main_visual .slick-slide {
+  overflow: hidden;
+}
+.main_visual .slick-dotted.slick-slider {
+  margin-bottom: 0;
+}
+
+.main_visual .slick-next,
+.main_visual .slick-prev {
+  display: none;
+  transform: translate(0, 0);
+}
+
+.main_visual .slick-dots {
+  width: auto;
+  right: 50%;
+  bottom: 17px;
+  margin-left: -40px;
+}
+.main_visual .slick-dots li {
+  width: 12px;
+  height: 12px;
+  margin: 0 3px;
+}
+.main_visual .slick-dots li button {
+  width: 12px;
+  height: 12px;
+}
+.main_visual .slick-dots li button:before {
+  width: 12px;
+  height: 12px;
+  color: var(--color-bg-color);
+  opacity: 0.5;
+}
+.main_visual .slick-dots li.slick-active button:before {
+  color: var(--color-bg-color);
+  opacity: 1;
+}
+
+.main_visual .buttons {
+  display: block;
+  position: absolute;
+  right: 50%;
+  bottom: 8px;
+  margin-right: -35px;
+}
+
+.main_visual .buttons .play:before,
+.main_visual .buttons .pause:before {
+  content: "";
+  display: block;
+}
+.main_visual .buttons .play:before {
+  width: 10px;
+  height: 12px;
+  background: url(../images/bg/bg_play.png) 50% 50% / 100% no-repeat;
+}
+.main_visual .buttons .pause:before {
+  width: 12px;
+  height: 13px;
+  background: url(../images/bg/bg_pause.png) 50% 50% / 100% no-repeat;
+}
+.main_visual .buttons .play {
+  margin-right: 5px;
+}
+/* mcontent */
+#mcontent h3 {
+  color: var(--color-main-text);
+  font-size: 25px;
+  font-weight: 700;
+}
+/* HMM의 윤리경영 */
+#mcontent .business_ethics {
+  padding: 50px 0;
+}
+#mcontent .business_ethics p {
+  font-size: 19px;
+  padding: 12px 0 75px 0;
+}
+#mcontent .business_ethics ul li {
+  width: 100%;
+  height: 202px;
+  border-radius: 10px;
+  background-color: var(--color-bg-color);
+  margin-bottom: 10px;
+}
+#mcontent .business_ethics ul li:last-child {
+  margin-bottom: 0;
+}
+#mcontent .business_ethics ul li dl {
+  padding: 43px 0 0 29px;
+}
+
+#mcontent .business_ethics ul li dt {
+  padding: 8px 0 18px;
+  color: var(--color-main-text);
+  font-size: 23px;
+  font-weight: 700;
+  position: relative;
+}
+#mcontent .business_ethics ul li dt::before {
+  content: "";
+  width: 50px;
+  height: 4px;
+  background-color: var(--color-sub-color);
+  position: absolute;
+  left: 0;
+  top: -10px;
+}
+#mcontent .business_ethics ul li dd {
+  font-size: 15px;
+  padding: 0 40px 40px 0;
+}
+#mcontent .business_ethics ul li a {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+}
+#mcontent .business_ethics .more {
+  width: 45px;
+  height: 45px;
+  border-radius: 0 0 10px 0;
+  background-color: #20265b;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+#mcontent .business_ethics .more::before {
+  content: "";
+  width: 1px;
+  height: 25px;
+  background-color: #f3f3f3;
+  position: absolute;
+  left: 50%;
+  top: 10px;
+}
+#mcontent .business_ethics .more::after {
+  content: "";
+  width: 25px;
+  height: 1px;
+  background-color: #f3f3f3;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+}
+/* HMM 윤리강령 */
+#mcontent .code_of_ethics {
+  padding: 60px 0 44px 0;
+}
+#mcontent .code_of_ethics h3 {
+  padding-bottom: 45px;
+}
+#mcontent .code_of_ethics ul {
+}
+#mcontent .code_of_ethics ul li {
+  width: 100%;
+  height: 215px;
+  border-radius: 5px;
+  background-color: #20265b;
+  margin-bottom: 10px;
+}
+#mcontent .code_of_ethics ul li dl {
+  padding: 30px 10px 0 23px;
+}
+#mcontent .code_of_ethics ul li dt {
+  position: relative;
+}
+#mcontent .code_of_ethics ul li dt::after {
+  content: "";
+  width: 59px;
+  height: 59px;
+  background: url(../images/ico/ico_code.png) no-repeat;
+  position: absolute;
+  right: 32px;
+  top: 0;
+  background-size: 300%;
+}
+#mcontent .code_of_ethics ul li:nth-child(1) dt::after {
+  background-position-x: 0;
+}
+#mcontent .code_of_ethics ul li:nth-child(2) dt::after {
+  background-position-x: 50%;
+}
+#mcontent .code_of_ethics ul li:nth-child(3) dt::after {
+  background-position-x: 100%;
+}
+#mcontent .code_of_ethics ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #f3f3f3;
+}
+#mcontent .code_of_ethics ul li .ethics_tit1 {
+  font-size: 15px;
+  display: block;
+}
+#mcontent .code_of_ethics ul li .ethics_tit2 {
+  font-size: 25px;
+  font-weight: 700;
+  padding: 3px 0 59px 0;
+  display: block;
+}
+#mcontent .code_of_ethics ul li .ethics_txt {
+  font-size: 15px;
+}
+/* 사이버제보실 */
+#mcontent .ethics_hotline h3 {
+  color: #f3f3f3;
+  font-size: 30px;
+  font-weight: 700;
+}
+#mcontent .ethics_hotline .wrap {
+  padding: 0;
+}
+#mcontent .ethics_hotline .wrap .ethics_hotline_img_wrap {
+  height: 334px;
+  color: #f3f3f3;
+  padding: 48px 0 0 17px;
+  background: url(../images/img/img_ethics_hotline.jpg), rgba(0, 0, 0, 0.32);
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#mcontent .ethics_hotline .sub_txt1,
+#mcontent .ethics_hotline .sub_txt2,
+#mcontent .ethics_hotline .sub_txt_email {
+  font-size: 15px;
+}
+#mcontent .ethics_hotline .sub_txt1 {
+  padding-top: 15px;
+}
+#mcontent .ethics_hotline .sub_txt2 {
+  padding-top: 3px;
+}
+#mcontent .ethics_hotline .sub_txt_email {
+  padding-top: 9px;
+  font-weight: 500;
+}
+#mcontent .ethics_hotline .b_hotline {
+  margin-top: 23px;
+}
+/* 사회공헌 활동소식 */
+#mcontent .ethics_board .wrap {
+  padding-top: 74px;
+  padding-bottom: 28px;
+}
+#mcontent .ethics_board h3 {
+  font-size: 30px;
+  text-align: center;
+  padding-bottom: 60px;
+}
+#mcontent .ethics_board .board_box {
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: #707070;
+}
+#mcontent .ethics_board .board_box .board_img {
+  display: none;
+}
+#mcontent .ethics_board .board_box li {
+  border-bottom: 1px solid #d2d2d2;
+}
+#mcontent .ethics_board .board_box li:last-child {
+  border-bottom: 0;
+}
+#mcontent .ethics_board .board_box li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 0;
+}
+#mcontent .ethics_board .board_box .left {
+  width: calc(100% - 100px);
+}
+#mcontent .ethics_board .board_box .board_tit p {
+  width: 100%;
+  font-size: 18px;
+  color: var(--color-main-text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+}
+#mcontent .ethics_board .board_box .board_date {
+  color: var(--color-sub-text);
+  font-size: 18px;
+  font-weight: 300;
+}
+#mcontent .ethics_board .board_box .board_txt {
+  height: 28px;
+  color: var(--color-sub-text);
+  font-size: 14px;
+  padding-top: 8px;
+  overflow: hidden;
+}
+#mcontent .ethics_board .more {
+  width: 40px;
+  height: 40px;
+  background-color: #afafaf;
+  margin-top: 29px;
+  position: relative;
+  left: 50%;
+  margin-left: -20px;
+}
+#mcontent .ethics_board .more a {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+#mcontent .ethics_board .more::before {
+  content: "";
+  width: 1px;
+  height: 22px;
+  background-color: #f3f3f3;
+  position: absolute;
+  left: 50%;
+  top: 9px;
+}
+#mcontent .ethics_board .more::after {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background-color: #f3f3f3;
+  position: absolute;
+  left: 9px;
+  top: 50%;
+}
+
+#footer {
+  background-color: #414141;
+  color: #a7a7a7;
+  font-size: 12px;
+  padding-bottom: 29px;
+}
+#footer .wrap {
+  position: relative;
+}
+#footer .f_logo {
+  width: 67px;
+  height: 29px;
+  display: inline-block;
+  background: url(../images/logo/f_logo_mo.png) no-repeat 0 0 / contain;
+  margin: 32px 0 17px 0;
+}
+#footer .txt_box .txt_list {
+  display: flex;
+}
+#footer .txt_box .txt_list li {
+  padding: 0 13px 0 12px;
+  position: relative;
+}
+#footer .txt_box .txt_list li:first-child {
+  padding-left: 0;
+}
+#footer .txt_box .txt_list li::after {
+  content: "";
+  width: 1px;
+  height: 8px;
+  background-color: #6f6f6f;
+  position: absolute;
+  right: 0;
+  top: 7px;
+}
+#footer .txt_box .txt_list li:last-child::after {
+  background: none;
+}
+#footer .txt_box .txt_list li a {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+#footer .txt_box .txt_list li em {
+  color: #ed9493;
+}
+#footer .txt_box address {
+  border-top: 1px solid #646464;
+  padding-top: 14px;
+  margin-top: 14px;
+}
+#footer .family_site {
+  position: absolute;
+  right: 16px;
+  top: 31px;
+}
+#footer .family_site .family_txt {
+  width: 111px;
+  height: 31px;
+  border: 1px solid #707070;
+  color: #a7a7a7;
+  font-size: 12px;
+  padding: 1px 0 0 12px;
+  cursor: pointer;
+  position: relative;
+  text-align: left;
+}
+#footer .family_site .family_txt::after {
+  content: "";
+  width: 10px;
+  height: 6px;
+  background: url(../images/ico/ico_family_arrow.png) no-repeat;
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  margin-top: -3px;
+}
+#footer .family_site.active .family_txt::after {
+  transform: rotateX(180deg);
+}
+#footer .family_site .dropmenu {
+  display: none;
+  border: 1px solid #707070;
+  position: relative;
+  bottom: 63px;
+  background-color: #414141;
+}
+#footer .family_site.active .dropmenu {
+  display: block;
+  transition: all 0.3s;
+}
+#footer .family_site .dropmenu li {
+  height: 31px;
+}
+#footer .family_site .dropmenu li a {
+  width: 100%;
+  height: 100%;
+  color: #a7a7a7;
+  font-size: 13px;
+  padding: 6px 0 0 17px;
+  display: inline-block;
+}
+
+/* 맨위로 가기 */
+.btn_top {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: none;
+}
+.btn_top.btm {
+  bottom: 200px;
+}
+.btn_top .goto_top {
+  width: 35px;
+  height: 35px;
+  background: url(../images/ico/ico_top.png) no-repeat 50% 50% / 40% #e8e8e8;
+  border-radius: 5px;
+}
+
+/* sub - 윤리경영이란 */
+.sub_visual {
+  border-bottom: 1px solid #ddd;
+}
+.sub_visual .wrap {
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+.sub_visual h3 {
+  color: var(--color-main-text);
+  font-size: 30px;
+  font-weight: 700;
+  margin: 7px 0 26px 0;
+}
+.sub_visual .txt {
+  color: var(--color-sub-text);
+  font-size: 19px;
+  margin-bottom: 30px;
+}
+.sub_visual .img {
+  height: 230px;
+  background: url(../images/bg/bg_svisual1.jpg) 50% 50% no-repeat;
+  border-radius: 3px;
+}
+.sub_visual .location ul {
+  display: flex;
+}
+.sub_visual .location li {
+  padding: 0 14px 0 9px;
+  position: relative;
+}
+.sub_visual .location li:first-child {
+  padding-left: 5px;
+}
+.sub_visual .location li::after {
+  content: "";
+  width: 5px;
+  height: 9px;
+  background: url(../images/ico/ico_arrow.png) 50% 50% / 100% no-repeat;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 14px;
+}
+.sub_visual .location li:last-child:after {
+  background: none;
+}
+.sub_visual .location .home a {
+  width: 11px;
+  height: 12px;
+  background: url(../images/ico/ico_home_mo.png) 50% 50%/ 100% no-repeat;
+  display: inline-block;
+}
+.sub_visual .location li a {
+  font-size: 12px;
+  color: var(--color-main-text);
+}
+
+.scontents h4 {
+  color: var(--color-main-text);
+  font-size: 25px;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 13px;
+}
+.scontents h4::before {
+  content: "";
+  width: 50px;
+  height: 4px;
+  background-color: var(--color-sub-color);
+  position: absolute;
+  left: 0;
+  top: -7px;
+}
+
+.concepts .wrap {
+  padding-top: 83px;
+  padding-bottom: 40px;
+}
+.concepts .concept_content .concept {
+  background-color: var(--color-bg-color);
+  overflow: hidden;
+}
+.concepts .concept_content .concept {
+  margin-bottom: 20px;
+}
+.concepts .concept_content .concept .img_area {
+  height: 222px;
+  background-position: 50% 50%;
+  border-radius: 5px 5px 0 0;
+}
+.concepts .concept1 .img_area {
+  background-image: url(../images/bg/bg_concept01.jpg);
+}
+.concepts .concept2 .img_area {
+  background-image: url(../images/bg/bg_concept02.jpg);
+}
+.concepts .concept3 .img_area {
+  background-image: url(../images/bg/bg_concept03.jpg);
+}
+.concepts .concept4 .img_area {
+  background-image: url(../images/bg/bg_concept04.jpg);
+}
+.concepts .concept:last-child {
+  margin-bottom: 0;
+}
+.concepts .concept .txt_area {
+  padding: 20px 13px 18px 13px;
+}
+.concepts .concept p.tit {
+  color: var(--color-main-text);
+  font-size: 20px;
+  font-weight: 700;
+}
+.concepts .concept p.txt {
+  color: var(--color-sub-text);
+  font-size: 15px;
+  margin-top: 12px;
+}
+
+.responsibility .wrap {
+  padding-top: 60px;
+  padding-bottom: 59px;
+}
+.responsibility .responsibility_content > div {
+  border: 1px solid #4e4e88;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 30px 19px 97px 19px;
+}
+.responsibility .responsibility_content .tit {
+  color: var(--color-main-text);
+  font-size: 23px;
+  font-weight: 700;
+}
+.responsibility .responsibility_content .txt {
+  color: var(--color-sub-text);
+  font-size: 15px;
+  margin-top: 13px;
+}
+.responsibility .responsibility_content > div {
+  position: relative;
+}
+.responsibility .responsibility_content > div::after {
+  width: 67px;
+  height: 67px;
+  display: block;
+  position: absolute;
+  right: 29px;
+  bottom: 25px;
+}
+.responsibility .responsibility_content [class^="response"]::after {
+  background: url(../images/ico/ico_response.png) no-repeat 0 center;
+  content: "";
+  background-size: 400%;
+}
+.responsibility .responsibility_content .response1::after {
+  background-position-x: 0;
+}
+.responsibility .responsibility_content .response2::after {
+  background-position-x: -67px;
+}
+.responsibility .responsibility_content .response3::after {
+  background-position-x: -134px;
+}
+.responsibility .responsibility_content .response4::after {
+  background-position-x: 100%;
+}
+
+.hmm_ethics .wrap {
+  background: url(../images/bg/bg_hmm_ethics.jpg), rgba(89, 95, 116, 1);
+  background-position: 50% 50%;
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 60px;
+  padding-bottom: 68px;
+}
+.hmm_ethics h4,
+.hmm_ethics p,
+.hmm_ethics li {
+  color: #fff;
+}
+.hmm_ethics p {
+  font-size: 15px;
+}
+.hmm_ethics .hmm_ethics_content {
+  margin-top: 34px;
+  background-color: rgba(0, 0, 0, 0.26);
+}
+.hmm_ethics .hmm_ethics_content ul {
+  height: 345px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.hmm_ethics .hmm_ethics_content ul li {
+  flex: 1 1 40%;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-size: 15px;
+}
+.hmm_ethics .hmm_ethics_content ul li::before {
+  width: 77px;
+  height: 77px;
+  display: block;
+  background: url(../images/ico/ico_ethics.png) no-repeat 0 center;
+  content: "";
+  margin: 25px auto 0;
+  background-size: 400%;
+}
+.hmm_ethics .hmm_ethics_content ul li:nth-child(1)::before {
+  background-position-x: 0;
+}
+.hmm_ethics .hmm_ethics_content ul li:nth-child(2)::before {
+  background-position-x: -77px;
+}
+.hmm_ethics .hmm_ethics_content ul li:nth-child(3)::before {
+  background-position-x: -154px;
+}
+.hmm_ethics .hmm_ethics_content ul li:nth-child(4)::before {
+  background-position-x: 100%;
+}
+
+@media screen and (min-width: 520px) {
+  .sub_visual h3 {
+    font-size: 37px;
+    font-weight: 700;
+  }
+  .sub_visual p {
+    font-size: 19px;
+    font-weight: 400;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* 메인 */
+  /* HMM의 윤리경영 */
+  #mcontent .business_ethics {
+    padding: 56px 0 46px 0;
+  }
+  #mcontent .business_ethics p {
+    font-size: 16px;
+    padding-bottom: 43px;
+  }
+  #mcontent .business_ethics ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  #mcontent .business_ethics ul li {
+    height: 232px;
+    flex: 1 1 30%;
+    margin-bottom: 0;
+  }
+  /* HMM의 윤리강령 */
+  #mcontent .code_of_ethics {
+    padding-top: 64px;
+  }
+  #mcontent .code_of_ethics ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  #mcontent .code_of_ethics ul li {
+    height: 236px;
+    flex: 1 1 30%;
+    margin-bottom: 0;
+  }
+
+  /* 사이버제보실 */
+  #mcontent .ethics_hotline .wrap .ethics_hotline_img_wrap {
+    height: 300px;
+  }
+
+  #mcontent .ethics_board .board_box li a {
+    padding: 20px 0;
+  }
+  .concepts .concept_content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .concepts .concept_content .concept {
+    flex: 1 1 40%;
+    margin-bottom: 0;
+  }
+
+  .responsibility .responsibility_content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .responsibility .responsibility_content > div {
+    flex: 1 1 40%;
+    margin-bottom: 0;
+  }
+  /* 서브 */
+  .scontents h4 {
+    margin-bottom: 35px;
+  }
+  /* 윤리경영의 개념 */
+  .concepts .wrap {
+    padding-top: 92px;
+    padding-bottom: 44px;
+  }
+  /* 기업의 사회적 책임 */
+  .responsibility .wrap {
+    padding-top: 72px;
+    padding-bottom: 60px;
+  }
+  /* HMM의 윤리경영 */
+  .hmm_ethics .wrap {
+    padding-top: 68px;
+    padding-bottom: 60px;
+  }
+  .scontents .hmm_ethics h4 {
+    margin-bottom: 13px;
+  }
+  .hmm_ethics .hmm_ethics_content ul {
+    height: auto;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .hmm_ethics .hmm_ethics_content ul li {
+    height: 173px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  /* main visual */
+  .main_visual {
+    padding-top: 16px;
+  }
+  .main_visual .wrap {
+    position: relative;
+  }
+
+  .main_visual .text_wrap {
+    position: absolute;
+    left: 40px;
+    bottom: 38px;
+    z-index: 1;
+  }
+  .main_visual .text_wrap h3 .sm_txt {
+    color: var(--color-bg-color);
+  }
+  .main_visual .text_wrap h3 .lg_txt {
+    color: var(--color-bg-color);
+  }
+
+  /* 사회공헌 활동소식 */
+  #mcontent .ethics_board .board_box .board_img {
+    display: block;
+  }
+  #mcontent .ethics_board .board_box li a {
+    padding: 24px 0;
+  }
+  #mcontent .ethics_board .board_box li a .left {
+    display: flex;
+  }
+  #mcontent .ethics_board .board_box li a .left .board_cont {
+    padding-left: 23px;
+  }
+  #mcontent .ethics_board .board_box .board_tit {
+    color: var(--color-main-text);
+  }
+  #mcontent .ethics_board .board_box .board_tit p {
+    font-size: 19px;
+  }
+  #mcontent .ethics_board .board_box .board_date {
+    color: var(--color-main-text);
+    font-size: 19px;
+  }
+  #mcontent .ethics_board .board_box .board_txt {
+    height: auto;
+    font-size: 16px;
+    padding-top: 23px;
+  }
+
+  .sub_visual .img {
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  /* main visual */
+  .main_visual {
+    padding-top: 0;
+  }
+  .main_visual {
+    position: static;
+    height: 490px;
+    background-color: #f5f5f5;
+  }
+  .main_visual .wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .main_visual .text_wrap {
+    position: static;
+    width: calc(100% - 600px);
+    z-index: 0;
+  }
+  .main_visual .slider_wrap {
+    width: 600px;
+    padding: 45px 0;
+  }
+  .main_visual .text_wrap h3 {
+    color: var(--color-main-text);
+    padding: 100px 0 0 16px;
+  }
+  .main_visual .text_wrap h3 .sm_txt {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--color-main-text);
+    padding: 0 0 0 3px;
+  }
+  .main_visual .text_wrap h3 .lg_txt {
+    font-size: 35px;
+    color: var(--color-main-text);
+    padding-bottom: 0;
+  }
+  .main_visual .slick-dots {
+    bottom: 46px;
+  }
+  .main_visual .slick-dots li {
+    width: 14px;
+    height: 14px;
+    margin: 0 5px;
+  }
+  .main_visual .slick-dots li button:before {
+    width: 14px;
+    height: 14px;
+    font-size: 15px;
+  }
+
+  .main_visual .slick-next,
+  .main_visual .slick-prev {
+    display: block;
+    width: 25px;
+    height: 44px;
+    top: auto;
+    bottom: 30px;
+  }
+  .main_visual .slick-next {
+    right: 91px;
+  }
+  .main_visual .slick-prev {
+    right: 132px;
+    left: auto;
+    z-index: 1;
+  }
+  .main_visual .slick-next:before,
+  .main_visual .slick-prev:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    opacity: 1;
+  }
+  .main_visual .slick-next:before {
+    background: url(../images/bg/bg_arrow_next.png) no-repeat;
+  }
+  .main_visual .slick-prev:before {
+    background: url(../images/bg/bg_arrow_prev.png) no-repeat;
+  }
+  .main_visual .slick-dots {
+    width: auto;
+    text-align: right;
+    bottom: 46px;
+    right: 227px;
+  }
+  .main_visual .slick-dots li button {
+    width: 14px;
+    height: 14px;
+  }
+  .main_visual .buttons {
+    bottom: 83px;
+    right: 182px;
+    margin-right: 0;
+  }
+
+  .main_visual .buttons .play:before {
+    width: 14px;
+    height: 14px;
+    background-size: contain;
+  }
+  .main_visual .buttons .pause:before {
+    width: 12px;
+    height: 14px;
+  }
+  .main_visual .buttons .play {
+    margin-right: 5px;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .mo_only {
+    display: none;
+  }
+  .pc_only {
+    display: block;
+  }
+  .wrap {
+    width: 1366px;
+    margin: auto;
+    padding: 0 83px;
+  }
+  /* header */
+  header {
+    height: 93px;
+    box-shadow: 0px 1px 1px #00000029;
+  }
+  header h1 {
+    width: 50px;
+    height: 22px;
+    display: inline-block;
+    background: url(../images/logo/logo_pc.png) no-repeat 50% 50% / contain;
+    margin: 18px 0 0 8px;
+  }
+  header .menu_wrap_pc {
+    display: flex;
+    width: auto;
+    height: auto;
+    position: static;
+    background-color: transparent;
+  }
+  header .menu_wrap_pc .menu_top {
+    display: none;
+  }
+  header h1 {
+    width: 90px;
+    height: 38.57px;
+    display: inline-block;
+    background: url(../images/logo/logo_pc.png) 50% 50% no-repeat;
+    margin-top: 30px;
+  }
+  header nav > .main_menu {
+    display: flex;
+  }
+  header nav > .main_menu > li {
+    border-top: none;
+  }
+  header nav > .main_menu > li:last-child {
+    border-bottom: none;
+  }
+  header nav > .main_menu > li > a {
+    height: 93px;
+    line-height: 93px;
+    padding: 0 40px;
+    font-size: 18px;
+  }
+  header nav > .main_menu > li > a::after {
+    background: none;
+  }
+  header nav > .main_menu > li.on > a,
+  header nav .sub_menu > li > a:hover {
+    color: #4e4e88;
+    font-weight: 700;
+  }
+  header nav > .main_menu > li.on > a {
+    font-weight: 700;
+  }
+  header nav .sub_menu > li > a:hover {
+    font-weight: 500;
+  }
+
+  header nav .sub_menu {
+    width: 146px;
+    background: url(../images/bg/bg_submenu.png) no-repeat 50% 0 #fff;
+    border-radius: 0 0 10px 10px;
+    margin: auto;
+    position: relative;
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-color: lightgray;
+    z-index: 1;
+  }
+  header nav .sub_menu > li {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  header nav .sub_menu > li > a {
+    font-size: 15px;
+  }
+
+  /* util */
+  header .util_box {
+    border-top: none;
+  }
+  header .util_box > .util {
+    display: flex;
+    margin-top: 30px;
+  }
+  header .util_box > .util > li {
+    position: relative;
+  }
+  header .util_box > .util > li.mypage a {
+    width: 44px;
+    height: 21px;
+    background: url(../images/ico/ico_user_pc.png) no-repeat 50% 50%;
+    display: inline-block;
+    margin-top: 6px;
+  }
+  header .util_box > .util > li a,
+  header .util_box > .util > li > .lang_default {
+    font-family: "Noto Sans", sans-serif;
+    color: var(--color-main-text);
+    font-size: 16px;
+    padding: 0 14px;
+  }
+  header .util_box > .util > li > .lang_default {
+    cursor: pointer;
+    position: relative;
+    padding-right: 25px;
+  }
+  header .util_box > .util > li > .lang_default::after {
+    content: "";
+    width: 10px;
+    height: 6px;
+    background: url(../images/ico/ico_util_arrow_ pc.png) no-repeat;
+    position: absolute;
+    right: 0;
+    top: 8px;
+  }
+  header .util_box > .util > .lang.active .lang_default::after {
+    transform: rotateX(180deg);
+  }
+  header .util_box > .util > .lang .lang_dropdown {
+    display: none;
+    width: 56px;
+    border: 1px solid #707070;
+    border-radius: 5px;
+    background-color: #fff;
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    z-index: 1;
+  }
+
+  header .util_box > .util > li > a,
+  header .util_box .lang_default {
+    font-size: 15px;
+  }
+  header .util_box .util .lang_dropdown a {
+    width: 100%;
+    font-size: 14px;
+    color: var(--color-sub-text);
+    display: inline-block;
+    line-height: 29px;
+  }
+  header .util_box .util .lang_dropdown a:hover {
+    color: #4e4e88;
+  }
+  header .util_box > .util > li > a {
+    position: relative;
+  }
+  header .util_box > .util > li > a::after {
+    content: "";
+    width: 2px;
+    height: 10px;
+    background-color: #636363;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -5px;
+  }
+
+  /* main visual */
+
+  .main_visual {
+    position: static;
+    height: 573px;
+    background-color: #f5f5f5;
+  }
+  .main_visual .wrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+  }
+  .main_visual .text_wrap {
+    position: static;
+    width: calc(100% - 774px);
+    z-index: 0;
+  }
+  .main_visual .slick-list {
+    height: 483px;
+    border-radius: 10px;
+  }
+  .main_visual .text_wrap h3 {
+    padding: 216px 0 0 83px;
+  }
+
+  .main_visual .text_wrap h3 .lg_txt {
+    font-size: 40px;
+  }
+
+  .main_visual .slider_wrap {
+    width: 773px;
+    padding: 45px 0;
+  }
+
+  /* mcontent */
+  #mcontent h3 {
+    font-size: 35px;
+  }
+  /* HMM의 윤리경영 */
+  #mcontent .business_ethics {
+    height: 765px;
+    padding: 146px 0 113px 0;
+  }
+  #mcontent .business_ethics p {
+    font-size: 22px;
+    padding: 12px 0 75px 0;
+  }
+  #mcontent .business_ethics ul li dl {
+    padding: 43px 0 0 29px;
+  }
+  #mcontent .business_ethics ul li dt {
+    font-size: 25px;
+    padding: 8px 0 18px;
+  }
+  #mcontent .business_ethics ul li dd {
+    font-size: 20px;
+    padding-right: 40px;
+  }
+
+  /* HMM 윤리강령 */
+  #mcontent .code_of_ethics {
+    height: 614px;
+    padding: 73px 0 99px 0;
+  }
+  #mcontent .code_of_ethics h3 {
+    padding-bottom: 91px;
+  }
+
+  #mcontent .code_of_ethics ul li {
+    height: 300px;
+    border-radius: 10px;
+  }
+  #mcontent .code_of_ethics ul li dl {
+    padding: 50px 0 0 40px;
+  }
+  #mcontent .code_of_ethics ul li dt::after {
+    width: 76px;
+    height: 76px;
+    right: 45px;
+  }
+  #mcontent .code_of_ethics ul li .ethics_tit1 {
+    font-size: 15px;
+  }
+  #mcontent .code_of_ethics ul li .ethics_tit2 {
+    font-size: 30px;
+    padding: 3px 0 76px 0;
+  }
+  #mcontent .code_of_ethics ul li .ethics_txt {
+    font-size: 19px;
+  }
+
+  /* 사이버제보실 */
+  #mcontent .ethics_hotline {
+    height: 620px;
+    padding: 110px 0;
+  }
+  #mcontent .ethics_hotline h3 {
+    font-size: 40px;
+  }
+  #mcontent .ethics_hotline .wrap {
+    width: 1200px;
+  }
+  #mcontent .ethics_hotline .wrap .ethics_hotline_img_wrap {
+    height: 399px;
+    padding: 74px 0 0 59px;
+    border-radius: 10px;
+  }
+  #mcontent .ethics_hotline .sub_txt1,
+  #mcontent .ethics_hotline .sub_txt2,
+  #mcontent .ethics_hotline .sub_txt_email {
+    font-size: 20px;
+  }
+  #mcontent .ethics_hotline .sub_txt1 {
+    padding-top: 15px;
+  }
+  #mcontent .ethics_hotline .sub_txt2 {
+    padding-top: 3px;
+  }
+  #mcontent .ethics_hotline .sub_txt_email {
+    padding-top: 9px;
+  }
+  #mcontent .ethics_hotline .b_hotline {
+    font-size: 20px;
+    padding: 14px 65px;
+    margin-top: 47px;
+    border-radius: 10px;
+  }
+
+  #mcontent .ethics_board .board_box .board_tit p {
+    font-size: 25px;
+  }
+  #mcontent .ethics_board .board_box .board_date {
+    font-size: 25px;
+  }
+
+  /* 사회공헌 활동소식 */
+  #mcontent .ethics_board .wrap {
+    padding-top: 95px;
+    padding-bottom: 132px;
+  }
+  #mcontent .ethics_board h3 {
+    padding-bottom: 95px;
+  }
+  #mcontent .ethics_board .board_box li a {
+    padding: 40px 0;
+  }
+  #mcontent .ethics_board .more {
+    margin-top: 100px;
+  }
+  /* footer */
+  #footer {
+    height: 150px;
+  }
+  #footer .wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+  #footer .wrap .left {
+    display: flex;
+  }
+  #footer .f_logo {
+    width: 81px;
+    height: 35px;
+    background: url(../images/logo/f_logo_pc.png) no-repeat;
+    margin: 37px 67px 0 30px;
+  }
+  #footer .txt_box {
+    color: #f3f3f3;
+    font-size: 15px;
+    padding-top: 33px;
+  }
+  #footer .txt_box address {
+    padding: 10px 0;
+    margin-top: 0;
+    border-top: none;
+  }
+  #footer .txt_box .txt_list li:last-child::after {
+    background: none;
+  }
+  #footer .family_site {
+    top: 37px;
+    right: 83px;
+  }
+  #footer .family_site .family_txt {
+    width: 153px;
+    height: 34px;
+    color: #f3f3f3;
+    font-size: 13px;
+    padding-left: 17px;
+  }
+  #footer .family_site .family_txt::after {
+    content: "";
+    width: 10px;
+    height: 6px;
+    background: url(../images/ico/ico_family_arrow.png) no-repeat;
+    position: absolute;
+    right: 13px;
+    top: 50%;
+  }
+  #footer .family_site.active .family_txt::after {
+    transform: rotateX(180deg);
+  }
+  #footer .family_site .dropmenu {
+    display: none;
+    border: 1px solid #707070;
+    position: relative;
+    bottom: 69px;
+    background-color: #414141;
+  }
+  #footer .family_site .dropmenu li {
+    height: 34px;
+  }
+  #footer .family_site .dropmenu li a {
+    width: 100%;
+    height: 100%;
+    color: #f3f3f3;
+    font-size: 13px;
+    padding: 6px 0 0 17px;
+  }
+
+  /* 맨위로 가기 */
+  .btn_top {
+    right: 20px;
+    bottom: 20px;
+  }
+  .btn_top.btm {
+    bottom: 200px;
+  }
+  .btn_top .goto_top {
+    width: 57px;
+    height: 57px;
+    background: url(../images/ico/ico_top.png) no-repeat 50% 50% #e8e8e8;
+    border-radius: 5px;
+  }
+
+  /* sub - 윤리경영이란 */
+  .sub_visual {
+    border-bottom: 0;
+  }
+  .sub_visual .wrap {
+    height: 270px;
+    padding: 0;
+    background: url(../images/bg/bg_svisual1.jpg) no-repeat 50% 50%;
+    background-size: cover;
+    position: relative;
+  }
+
+  .sub_visual .img {
+    display: none;
+  }
+  .sub_visual h3,
+  .sub_visual .txt {
+    padding-left: 83px;
+  }
+  .sub_visual .location {
+    position: absolute;
+    left: 83px;
+    bottom: 30px;
+  }
+  .sub_visual h3,
+  .sub_visual .txt,
+  .sub_visual .location li a {
+    color: #fff;
+  }
+  .sub_visual h3 {
+    font-size: 37px;
+    margin: 0;
+    padding-top: 88px;
+  }
+
+  .sub_visual .location .home a {
+    width: 11px;
+    height: 12px;
+    background: url(../images/ico/Ico_home_pc.png) no-repeat;
+  }
+
+  .sub_visual .location li::after {
+    background: url(../images/ico/ico_arrow_white.png) no-repeat;
+  }
+  /* HMM의 윤리경영 */
+  #mcontent .business_ethics ul li {
+    height: 264px;
+  }
+  /* 서브 */
+  .scontents h4 {
+    font-size: 30px;
+    padding-bottom: 67px;
+  }
+  .scontents h4::before {
+    width: 72px;
+    height: 3px;
+  }
+  .concepts .wrap {
+    padding-top: 107px;
+    padding-bottom: 79px;
+  }
+  .concepts .concept_content {
+    gap: 73px;
+  }
+  .concepts .concept_content .concept {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 29px;
+    flex: 1 1 60%;
+    background-color: #fff;
+    padding: 0;
+  }
+  .concepts .concept_content .concept > div {
+    flex: 1 1 40%;
+    padding: 13px 0;
+  }
+  .concepts .concept_content > div:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  .concepts .concept p {
+    color: var(--color-main-text);
+  }
+  .concepts .concept:last-child {
+    margin-bottom: 0;
+  }
+  .concepts .concept .txt_area {
+  }
+  .concepts .concept_content .concept .img_area {
+    width: 588px;
+    height: auto;
+    border-radius: 10px;
+  }
+  .concepts .concept p.tit {
+    font-size: 25px;
+  }
+  .concepts .concept p.txt {
+    font-size: 18px;
+  }
+  .responsibility .wrap {
+    padding-top: 115px;
+    padding-bottom: 120px;
+  }
+  .responsibility .responsibility_content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .responsibility .responsibility_content > div {
+    height: 318px;
+    flex: 1 1 40%;
+    margin-bottom: 0;
+    position: relative;
+    padding: 49px 48px;
+  }
+  .responsibility .responsibility_content .tit {
+    font-size: 28px;
+  }
+  .responsibility .responsibility_content .txt {
+    font-size: 18px;
+  }
+  .responsibility .responsibility_content > div::after {
+    width: 75px;
+    height: 75px;
+    right: 47px;
+    bottom: 40px;
+  }
+  .responsibility .responsibility_content [class^="response"]::after {
+    background: url(../images/ico/ico_response.png) no-repeat 0 center;
+    content: "";
+  }
+  .responsibility .responsibility_content .response1::after {
+    background-position-x: 0;
+  }
+  .responsibility .responsibility_content .response2::after {
+    background-position-x: -75px;
+  }
+  .responsibility .responsibility_content .response3::after {
+    background-position-x: -150px;
+  }
+  .responsibility .responsibility_content .response4::after {
+    background-position-x: 100%;
+  }
+
+  .hmm_ethics .wrap {
+    padding-top: 107px;
+    padding-bottom: 106px;
+  }
+  .scontents .hmm_ethics h4 {
+    padding-bottom: 33px;
+    margin-bottom: 0;
+  }
+  .hmm_ethics p {
+    font-size: 21px;
+  }
+  .hmm_ethics .hmm_ethics_content {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.33);
+    margin-top: 141px;
+  }
+  .hmm_ethics .hmm_ethics_content ul li {
+    width: 250px;
+    height: 341px;
+    font-size: 21px;
+    position: relative;
+    border: none;
+  }
+  .hmm_ethics .hmm_ethics_content ul li::before {
+    width: 120px;
+    height: 120px;
+    margin-top: 70px;
+  }
+  .hmm_ethics .hmm_ethics_content ul li:nth-child(1)::before {
+    background-position-x: 0;
+  }
+  .hmm_ethics .hmm_ethics_content ul li:nth-child(2)::before {
+    background-position-x: -120px;
+  }
+  .hmm_ethics .hmm_ethics_content ul li:nth-child(3)::before {
+    background-position-x: -240px;
+  }
+  .hmm_ethics .hmm_ethics_content ul li:nth-child(4)::before {
+    background-position-x: 100%;
+  }
+  .hmm_ethics .hmm_ethics_content ul li::after {
+    content: "";
+    width: 2px;
+    height: 65px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    background-color: rgba(255, 255, 255, 0.37);
+    margin-top: -32px;
+  }
+  .hmm_ethics .hmm_ethics_content ul li:last-child::after {
+    background: none;
+  }
+}
